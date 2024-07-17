@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Aset - Medtory{% endblock %}
+
+{% block content %}
+    <div class="container mt-5 text-center">
+        <h1 style="color: hsl(252, 75%, 60%); margin-bottom: 20px;"><strong>Edit Data</strong></h1>
+        <div class="graph">
+            <img src="" alt="" style="width:100%; max-width:800px; height:auto;">
+        </div>
+    </div>
+
+    <div class="container mt-3 mb-5" style="max-width: 600px;">
+        <form action="{{ url_for('edit_aset', id_aset=aset[0]) }}" method="POST">
+            <div class="form-group">
+                <label for="id_aset">ID Aset</label>
+                <input type="text" class="form-control" id="id_aset" name="id_aset" value="{{ aset[0] }}" readonly>
+            </div>
+            <div class="form-group">
+                <label for="nama_aset">Nama Aset</label>
+                <input type="text" class="form-control" id="nama_aset" name="nama_aset" value="{{ aset[1] }}" required>
+            </div>
+            <div class="form-group">
+                <label for="kode">Kode</label>
+                <input type="text" class="form-control" id="kode" name="kode" value="{{ aset[2] }}" required>
+            </div>
+            <div class="form-group">
+                <label for="id_kategori">ID Kategori</label>
+                <input type="text" class="form-control" id="id_kategori" name="id_kategori" value="{{ aset[3] }}" required>
+            </div>
+            <div class="form-group">
+                <label for="qr_code">QR Code</label>
+                <input type="text" class="form-control" id="qr_code" name="qr_code" value="{{ aset[4] }}" required>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Update</button>
+        </form>
+    </div>
+
+    <!-- Inline CSS -->
+    <style>
+        .btn-primary {
+            background-color: hsl(252, 75%, 60%);
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            border-radius: 0.25rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: hsl(252, 75%, 50%);
+            color: white;
+        }
+
+        .graph {
+            margin-top: 20px;
+        }
+    </style>
+{% endblock %}

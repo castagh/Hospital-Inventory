@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="background-wrapper">
+    <div class="background-image"></div>
+    <main class="table">
+        <section class="table_header">
+            <h3 style="color: hsl(252, 75%, 50%);"><strong>Data Aset</strong></h3>
+            <a href="{{ url_for('add_data') }}" class="btn-custom btn-lg">Add Data</a>
+        </section>
+        <section class="table_body">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID Aset</th>
+                        <th>Nama Aset</th>
+                        <th>Kode</th>
+                        <th>ID Kategori</th>
+                        <th>QR Code</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for aset in asets %}
+                    <tr>
+                        <td>{{ aset[0] }}</td>
+                        <td>{{ aset[1] }}</td>
+                        <td>{{ aset[2] }}</td>
+                        <td>{{ aset[3] }}</td>
+                        <td>{{ aset[4] }}</td>
+                        <td>
+                            <a href="{{ url_for('edit_aset', id_aset=aset[0]) }}" class="btn btn-primary btn-sm">Edit</a>
+                            <a href="{{ url_for('delete_aset', id_aset=aset[0]) }}" class="btn btn-danger btn-sm delete-btn" onclick="return confirm('Anda yakin akan menghapus data ini?')">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </main>
+</div>
+
+<style>
+    /* Button styling */
+    .btn-custom {
+        background-color: hsl(252, 75%, 60%);
+        border: none;
+        color: white;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        border-radius: 0.25rem;
+        text-decoration: none;
+        display: inline-block;
+        transition: background-color 0.3s ease;
+        margin-top: 1rem; /* Adjusted margin for better spacing */
+        margin-right: 1rem;
+    }
+
+    .btn-custom:hover {
+        background-color: hsl(253, 12%, 62%);
+    }
+
+    /* Main table styling */
+    main.table {
+        width: 85%;
+        max-width: 1200px;
+        height: 90%;
+        max-height: 800px;
+        margin: 50px auto;
+        background-color: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(10px);
+        border-radius: .8rem;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .table_header {
+        width: 100%;
+        height: 15%;
+        background-color: hsla(251, 28%, 74%, 0.363);
+        backdrop-filter: blur(3px);
+        padding: .8rem 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .table_body {
+        width: 95%;
+        max-height: calc(85% - 1.6rem);
+        background-color: #fffb;
+        margin: .7rem auto;
+        border-radius: .6rem;
+        overflow-y: auto;
+        overflow-x: hidden; 
+    }
+
+    .table_body::-webkit-scrollbar {
+        border-radius: 0.5rem;
+        background-color: #0004;
+        visibility: hidden;
+    }
+
+    .table_body:hover::-webkit-scrollbar-thumb {
+        visibility: visible;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        padding: 1rem;
+    }
+
+    thead th {
+        position: sticky;
+        top: 0;
+        left: 0;
+        background-color: #d5d1defe;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #0000000b;
+    }
+
+    tbody tr:hover {
+        background-color: #fff6;
+    }
+
+    .background-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .background-image {
+        background-image: url('{{ url_for('static', filename='images/background.jpg') }}');
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+    }
+
+    .background-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+</style>
+{% endblock %}

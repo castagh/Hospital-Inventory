@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block title %}Medtory{% endblock %}
+
+{% block content %}
+<div class="hero-section">
+    <div class="overlay"></div>
+    <div class="content">
+        <h1 class="display-4">Selamat datang di Medtory!</h1>
+        <hr class="my-4" style="color: transparent;">
+        <p>Sistem inventaris aset rumah sakit yang mudahkan pelacakan dan pemeliharaan aset Anda secara real-time. Tingkatkan efisiensi operasional dan kurangi biaya dengan solusi kami yang aman dan mudah digunakan!</p>
+        <div class="mb-4">
+            <a href="#" class="btn btn-custom btn-sm" role="button">Learn more</a>
+        </div>
+    </div>
+</div>
+
+<div class="background-image"></div>
+<div class="content">
+    <!-- Content here -->
+</div>
+
+<style>
+    body, html {
+        height: 100%;
+        margin: 0;
+    }
+
+    .hero-section {
+        background-image: url('{{ url_for('static', filename='images/background.jpg') }}');
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding-left: 2rem;
+        color: white;
+        text-align: left;
+    }
+
+    .hero-section .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+
+    .hero-section .content {
+        position: relative;
+        z-index: 2;
+        padding-left: 2.5rem;
+        max-width: 800px;
+    }
+
+    .btn-custom {
+        background-color: hsl(252, 75%, 60%);
+        border: none;
+        color: white;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        border-radius: 0.25rem;
+        text-decoration: none;
+        display: inline-block;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-custom:hover {
+        background-color: hsl(252, 75%, 50%);
+        color: white;
+    }
+
+    .display-4 {
+        font-size: 2.5rem;
+    }
+
+    .lead {
+        margin-bottom: 1rem;
+    }
+
+    .footer-custom {
+        background: none;
+        color: white;
+        position: absolute;
+        bottom: 0;
+        width: calc(100% - 40px);
+        margin: 0 20px;
+        z-index: 2;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .footer-custom .text-muted {
+        color: rgba(255, 255, 255, 0.7) !important;
+    }
+
+    .footer-custom a {
+        color: white !important;
+    }
+
+    .footer-custom.border-top {
+        border-top: none;
+    }
+
+    .footer-custom {
+        width: calc(95% - 50px);
+        margin: 0 50px;
+    }
+</style>
+
+{% endblock %}

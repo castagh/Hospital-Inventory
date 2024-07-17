@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Data - Medtory{% endblock %}
+
+{% block content %}
+    <div class="container mt-5 text-center">
+        <h1 style="color: hsl(252, 75%, 60%); margin-bottom: 20px;"><strong>Add New Data</strong></h1>
+        <div class="graph">
+            <img src="" alt="" style="width:100%; max-width:800px; height:auto;">
+        </div>
+    </div>
+
+    <div class="container mt-3 mb-5" style="max-width: 600px;">
+        <form method="POST" action="{{ url_for('add_data') }}">
+            <div class="form-group">
+                <label for="asset_id">ID Aset</label>
+                <input type="text" class="form-control" id="id_aset" name="id_aset" required>
+            </div>
+            <div class="form-group">
+                <label for="asset_name">Nama Aset</label>
+                <input type="text" class="form-control" id="nama_aset" name="nama_aset" required>
+            </div>
+            <div class="form-group">
+                <label for="asset_code">Kode</label>
+                <input type="text" class="form-control" id="kode" name="kode" required>
+            </div>
+            <div class="form-group">
+                <label for="category">ID Kategori</label>
+                <input type="text" class="form-control" id="id_kategori" name="id_kategori" required>
+            </div>
+            <div class="form-group">
+                <label for="qr_code">QR Code</label>
+                <input type="text" class="form-control" id="qr_code" name="qr_code" required>
+            </div>  
+            
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+        </form>
+    </div>
+
+    <!-- Inline CSS -->
+    <style>
+        .btn-primary {
+            background-color: hsl(252, 75%, 60%);
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            border-radius: 0.25rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: hsl(252, 75%, 50%);
+            color: white;
+        }
+
+        .graph {
+            margin-top: 20px;
+        }
+    </style>
+{% endblock %}

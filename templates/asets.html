@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Aset</title>
+  </head>
+  <body>
+    <h1>Data Inventaris Peralatan Rumah Sakit</h1>
+    <table>
+      <thead>
+        <tr>
+            <th>ID Aset</th>
+            <th>Nama Aset</th>
+            <th>Kode</th>
+            <th>ID Kategori</th>
+            <th>QR Code</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for customer in customers %}
+          <tr>
+            <td>{{ aset[0] }}</td>
+            <td>{{ aset[1] }}</td>
+            <td>{{ aset[2] }}</td>
+            <td>{{ aset[3] }}</td>
+            <td>{{ aset[4] }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>
